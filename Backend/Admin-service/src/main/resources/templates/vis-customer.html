@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail d'un client :</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css.css" th:href="@{/css/normalize.css}" />
+    <link rel="stylesheet" type="text/css" href="/css/vis-styles.css" th:href="@{/css/vis-styles.css}" />
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+    <body>
+
+        <div class="main container d-flex justify-content-center" style="margin-top: -10px; margin-bottom: 30px;">
+                    <div class="contenant" style="width: 400px; height: 600px;">
+                        <h3 style="margin-top: 20px;">Détail d'un client :</h3>
+                        <div class="row">
+                            <label class="col-6 fldlabel"><span>Nom & Prénom :</span></label>
+                            <div class="col-6" th:text="${customer.getLastName()}+ ' '+ ${customer.getFirstName()}"></div>
+                        </div>
+                        <div class="row">
+                            <label class="col-6 fldlabel"><span>Genre :</span></label>
+                            <div class="col-6" th:text="${customer.getGender()}"></div>
+                        </div>
+                        <div class="row">
+                            <label class="col-6 fldlabel"><span>Cin :</span></label>
+                            <div class="col-6" th:text="${customer.getCin()}"></div>
+                        </div>
+                        <div class="row">
+                            <label class="col-6 fldlabel"><span>Date de naissance :</span></label>
+                            <div class="col-6" th:text="${customer.getBirthDay()}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>N° Téléphone</span></label>
+                            <div class="col-6" th:text="${customer.getPhoneNumber()}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>Opérateur : </span></label>
+                            <div class="col-6" th:text="${customer.getOperator()}"> </div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>Email </span></label>
+                            <div class="col-6" th:text="${customer.getEmail()}"> </div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>L'Adresse</span></label>
+                            <div class="col-6" th:text="${customer.address}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>N° De compte courant :</span></label>
+                            <div class="col-6" th:text="${customer.getCurrentAccountNum()}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>N° de compte Epargne:</span></label>
+                            <div class="col-6" th:text="${customer.getSavingsAccountNum()}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>Contrat</span></label>
+                            <div class="col-6" th:text="${customer.getContract()}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>Status</span></label>
+                            <div class="col-6" th:text="${customer.getStatus()}"> </div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>Date de l'ajout :</span></label>
+                            <div class="col-6" th:text="${customer.getCreationDate()}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>Agence</span></label>
+                            <div class="col-6" th:text="${agencyName}"> </div>
+                        </div>
+                        <a class="btn btn-secondary" th:href="@{/list_clients}">Retour</a>
+                    </div>
+        </div>
+    </body>
+</html>

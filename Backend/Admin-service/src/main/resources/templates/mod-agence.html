@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualiser une Agence</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css.css" th:href="@{/css/normalize.css}" />
+    <link rel="stylesheet" type="text/css" href="/css/mod-styles.css" th:href="@{/css/mod-styles.css}" />
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+    <body>
+
+        <section class="main container">
+            <div class="contenant" style="width: 400px; height: 600px;">
+                <h3 style="margin-top: 60px;">Modification d'une agence</h3>
+                <br>
+                <form th:action="@{/updateAgence/{id}(id=${agency.getId()})}" method="post" th:object="${agency}">
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>Nom de l'agence :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:field="*{name}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>Directeur :</span></label>
+                        <div class="col-6">
+                            <select type="text" class="form-control" th:default="${director} != null ? ${director.getLastName()} +' '+${director.getFirstName()}  : 'Non-disponible'" th:field="*{agencyChefId}">
+                                <option  th:each="officer: ${officersList}" th:value="${officer.getId()}" th:text="${officer.getLastName()}+' '+${officer.getFirstName()} "></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>N° de Téléphone :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:field="*{email}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>N° de Téléphone :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:field="*{phoneNumber}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>N° de Fax :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:field="*{fax}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>L'adresse :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control"  th:field="*{address}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>Date de création :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:value="*{creationDate}" readonly>
+                        </div>
+                    </div>
+                    <br>
+                    <a class="btn btn-secondary" th:href="@{/list_agences}">Retour</a>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 200px;" >Sauvegarder</button>
+
+                </form>
+            </div>
+        </section>
+    </body>
+</html>

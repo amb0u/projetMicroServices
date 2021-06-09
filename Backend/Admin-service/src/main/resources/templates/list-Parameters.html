@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="SideBar">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des paramètres globaux.</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/param-styles.css" th:href="@{/css/param-styles.css}" />
+</head>
+    <body>
+        <div layout:fragment="content">
+            <div class="main" >
+                    <div id="page-content-wrapper" >
+                            <div class="container">
+                                     <div>
+                                        <h3 style="margin-bottom: 25px; padding-top: 30px;">Liste des paramètres globaux.</h3>
+
+
+                                             <div class="container">
+                                                 <div class="param row">
+                                                     <br>
+                                                     <div class="col-2">
+                                                         <h3 style="margin-top: 20px;">Devise</h3>
+                                                     </div>
+                                                     <br>
+                                                     <div class="col-5" th:if="${!currency.isPresent()}">
+                                                         <div class="form-group col-12">
+                                                             <form th:action="@{/add-devise}" method="post">
+                                                                 <label class="col-12 frmlabel">Ajouter la devise</label>
+                                                                 <div class="col-12" >
+                                                                     <input type="text" id="deviseName" placeholder="Symbol de devise" class="form-control" th:field="${emptyCurrency.symbol}">
+                                                                     <button type="submit" style="margin: 10px 0px;" class="col-12 btn btn-primary">Ajouter</button>
+                                                                 </div>
+                                                             </form>
+                                                         </div>
+                                                     </div>
+                                                     <div class="col-5" th:if="${currency.isPresent()}">
+                                                         <div class="form-group col-12">
+                                                             <form th:action="@{/mod-devise}" method="post">
+                                                                 <label class="col-12 frmlabel">Modifer la devise</label>
+                                                                 <div class="col-12" >
+                                                                     <input type="text" id="adeviseName" placeholder="Modifier le Symbol de devise Actuelle" class="form-control" th:field="${emptyCurrency.symbol}">
+                                                                     <button type="submit" style="margin: 10px 0px;" class="col-12 btn btn-primary">Modifier</button>
+                                                                 </div>
+                                                             </form>
+                                                         </div>
+                                                     </div>
+                                                     <br>
+                                                     <div class="col-5">
+                                                         <div class="form-group col-12">
+                                                             <form th:action="@{/supp-devise}" method="get">
+                                                                 <label class="col-12 frmlabel">Supprimer la devise</label>
+                                                                 <div class="col-12" >
+                                                                     <select class="form-control"  th:field="${emptyCurrency.id}">
+                                                                         <option th:value="${currency.isPresent()} ? ${currency.get().getId()}" th:text="${currency.isPresent()} ? ${currency.get().getSymbol()}"></option>
+                                                                     </select>
+                                                                     <button type="submit" style="margin: 10px 0px;" class="col-12 btn btn-danger" >Supprimer</button>
+                                                                 </div>
+                                                             </form>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+
+                                            <div class="container">
+
+                                                <div class="param row">
+                                                    <br>
+                                                    <div class="col-2">
+                                                        <h3 style="margin-top: 20px;">Roles</h3>
+                                                    </div>
+                                                    <br>
+                                                    <div class="col-5">
+                                                        <div class="form-group col-12" th:object="${emptyRole}">
+                                                            <form th:action="@{/add-role}" method="post">
+                                                                <label class="col-12 frmlabel">Ajouter un nouveau role</label>
+                                                                <div class="col-12" >
+                                                                    <input type="text" id="roleName" placeholder="Nom de role" class="form-control" th:field="${emptyRole.name}">
+                                                                    <input type="text" id="roleDesc" placeholder="Description de role" class="form-control" th:field="${emptyRole.description}">
+                                                                    <button type="submit" style="margin: 10px 0px;" class="col-12 btn btn-primary">Ajouter</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="col-5">
+                                                        <div class="form-group col-12">
+                                                            <form th:action="@{/supp-role/{id}(id=${emptyRole.getId()})}" method="get">
+                                                                <label class="col-12 frmlabel">Selectionner un role à supprimer</label>
+                                                                <div class="col-12" >
+                                                                    <select type="text" class="form-control" th:field="${emptyRole.id}">
+                                                                        <option  th:each="role: ${roles}" th:value="${role.getId()}" th:text="${role.getName()}"></option>
+                                                                    </select>
+                                                                    <button type="submit" style="margin: 10px 0px;" class="col-12 btn btn-danger" th:href="@{/supp-role/}">Supprimer</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                             <div class="container">
+
+                                                 <div class="param row">
+                                                     <br>
+                                                     <div class="col-2">
+                                                         <h3 style="margin-top: 20px;">Status</h3>
+                                                     </div>
+                                                     <br>
+                                                     <div class="col-5">
+                                                         <div class="form-group col-12">
+                                                             <form th:action="@{/add-status}" method="post">
+                                                                 <label class="col-12 frmlabel">Ajouter un nouveau Statu</label>
+                                                                 <div class="col-12" >
+                                                                     <input type="text" id="sName" placeholder="Nom de statu" class="form-control" th:field="${emptyStatus.name}">
+                                                                     <input type="text" id="sDesc"  placeholder="Description de statu" class="form-control" th:field="${emptyStatus.description}">
+                                                                     <button type="submit" style="margin: 10px 0px;" class="col-12 btn btn-primary">Ajouter</button>
+                                                                 </div>
+                                                             </form>
+                                                         </div>
+                                                     </div>
+                                                     <br>
+                                                     <div class="col-5">
+                                                         <div class="form-group col-12">
+                                                             <form th:action="@{/supp-status/{id}(id=${emptyStatus.getId()})}" method="get">
+                                                                 <label class="col-12 frmlabel">Selectionner un statu à supprimer</label>
+                                                                 <div class="col-12" >
+                                                                     <select type="text" class="form-control"  th:field="${emptyStatus.id}">
+                                                                         <option  th:each="statu: ${status}" th:value="${statu.getId()}" th:text="${statu.getName()}"></option>
+                                                                     </select>
+                                                                     <button type="submit" style="margin: 10px 0px;" class="col-12 btn btn-danger">Supprimer</button>
+                                                                 </div>
+                                                             </form>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+
+                                             <div class="container">
+                                                 <div class="param row">
+                                                     <br>
+                                                     <div class="col-2">
+                                                         <h3 style="margin-top: 20px;">Contrats</h3>
+                                                     </div>
+                                                     <br>
+                                                     <div class="col-5">
+                                                         <div class="form-group col-12">
+                                                             <form th:action="@{/add-contract}" method="post">
+                                                                 <label class="col-12 frmlabel">Ajouter un nouveau contrat</label>
+                                                                 <div class="col-12" >
+                                                                     <input type="text" id="cName" placeholder="Nom de contrat" class="form-control" th:field="${emptyContract.name}">
+                                                                     <input type="text" id="cDesc" placeholder="Description de contrat" class="form-control" th:field="${emptyContract.description}">
+                                                                     <button type="submit" style="margin: 10px 0px;" class="col-12 btn btn-primary">Ajouter</button>
+                                                                 </div>
+                                                             </form>
+                                                         </div>
+                                                     </div>
+                                                     <div class="col-5">
+                                                         <div class="form-group col-12">
+                                                             <form th:action="@{/supp-contract/{id}(id=${emptyContract.getId()})}" method="get">
+                                                                 <label class="col-12 frmlabel">Selectionner un contrat à supprimer</label>
+                                                                 <div class="col-12" >
+                                                                     <select type="text" class="form-control"  th:field="${emptyContract.id}">
+                                                                         <option  th:each="contract: ${contracts}" th:value="${contract.getId()}" th:text="${contract.getName()}"></option>
+                                                                     </select>
+                                                                     <button type="submit" style="margin: 10px 0px;" class="col-12 btn btn-danger">Supprimer</button>
+                                                                 </div>
+                                                             </form>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+
+                                             <div class="container">
+
+
+                                                 <div class="param">
+                                                     <div class=" row col-12">
+                                                         <h3 style="margin-top: 20px;">Les jours fériés</h3>
+                                                     </div>
+                                                     <br>
+                                                     <div class="row" style="margin-left: 100px;">
+                                                             <div class="col-3" th:each="jourF: ${holidays}">
+                                                                 <input type="text" class="form-control" th:value="${jourF.getName()}+'  '+${jourF.getDate()}" readonly/>
+                                                             </div>
+                                                     </div>
+                                                     <br>
+                                                     <div class="row">
+                                                         <div class=" col-6">
+                                                             <div class="form-group col-12">
+                                                                 <form th:action="@{/add-holiday}" method="post">
+                                                                     <label class="col-12 frmlabel">Ajouter un nouveau jour férié</label>
+                                                                     <div class="col-12" >
+                                                                         <input type="text" id="jName" placeholder="Nom de jour férié" class="form-control" th:field="${emptyContract.name}">
+                                                                         <input type="text" id="jDesc" placeholder="yyyy-mm-dd" class="form-control" th:field="${emptyHoliday.date}">
+                                                                         <button type="submit" style="margin: 10px 0px;" class="col-12 btn btn-primary">Ajouter</button>
+                                                                     </div>
+                                                                 </form>
+                                                             </div>
+                                                         </div>
+                                                         <div class="col-6">
+                                                             <div class="form-group col-12">
+                                                                 <form th:action="@{/supp-holiday/{id}(id=${emptyHoliday.getId()})}" method="get">
+                                                                     <label class="col-12 frmlabel">Selectionner un contrat à supprimer</label>
+                                                                     <div class="col-12" >
+                                                                         <select type="text" class="form-control"  th:field="${emptyHoliday.id}">
+                                                                             <option  th:each="holiday: ${holidays}" th:value="${holiday.getId()}" th:text="${holiday.getName()}"></option>
+                                                                         </select>
+                                                                         <button style="margin: 10px 0px;" class="col-12 btn btn-danger">Supprimer</button>
+                                                                     </div>
+                                                                 </form>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                     </div>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualiser une Agence</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css.css" th:href="@{/css/normalize.css}" />
+    <link rel="stylesheet" type="text/css" href="/css/mod-styles.css" th:href="@{/css/mod-styles.css}" />
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+    <body>
+
+        <section class="main container">
+            <div class="contenant" style="width: 400px; height: 600px;">
+                <h3 style="margin-top: 60px;">Modification d'un Agent :</h3>
+                <br>
+                <form th:action="@{/updateAgent/{id}(id=${officer.getId()})}" method="post">
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>Nom  :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:field="*{officer.lastName}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>Prénom :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:field="*{officer.firstName}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>Genre :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control"  th:field="*{officer.gender}" readonly/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>Cin :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:field="*{officer.cin}" >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>Date de naissance :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:field="*{officer.birthDay}" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>N° de Téléphone :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:field="*{officer.phoneNumber}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>Email :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:field="*{officer.email}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>L'adresse :</span></label>
+                        <div class="col-6">
+                            <input type="text" class="form-control" th:field="*{officer.address}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>Agence :</span></label>
+                        <div class="col-6">
+                            <select type="text" class="form-control" th:field="*{officer.agencyId}">
+                                <option  th:each="agency: ${agencies}" th:value="${agency.getId()}" th:text="${agency.getName()}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-6  frmlabel"><span>Poste :</span></label>
+                        <div class="col-6">
+                            <select type="text" class="form-control" th:default="*{officer.role}" th:field="*{officer.role}">
+                                <option  th:each="role: ${roles}" th:value="${role.getName()}" th:text="${role.getName()}"></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <br>
+                    <a class="btn btn-secondary" th:href="@{/list_agents}">Retour</a>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 200px;">Sauvegarder</button>
+
+                </form>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+                                  Prepared by Abdellah AHBANE;
+
+GET:
+
+    *   To get all Customers, send GET Request to : : http://localhost:8081/customers
+    *   To get a Customer with id, send GET Request to : http://localhost:8081/customers/{id}
+    *   To get a Customer with with only id, LastName and Email, send GET Request to : http://localhost:8081/customers?projection=CustomerProjection-1 OR http://localhost:8081/customers/{id}?projection=CustomerProjection-1
+    *   To get a Customer with LASTNAME Contains SOMETHING, send GET Request to : http://localhost:8081/customers/search/customerByLastName?lastName={SOMETHING} // SOMETHING can be a letter or word
+    *   To get a Customer with cin Contains CIN ( all the cin or just part of it), send GET Request to : http://localhost:8081/customers/search/customerByCin?cin={CIN} // can be all the CIN or just a part of it
+    *   To get a Customer with Status Contains STATUS , send GET Request to : http://localhost:8081/customers/search/customerByStatus?status={STATUS}
+    *   To get a Customer with Contract Contains CONTRACT , send GET Request to : http://localhost:8081/customers/search/customerByContract?contract={CONTRACT}
+POST:
+    * TO create a Customer :
+            - You should send Get with the header : "Content-Type" : "application/json"
+            - and data :
+                {
+                  "firstName": "..",
+                  "lastName": "..",
+                  "email": "...",
+                  "address": " ..",
+                  "birthDay": "...",
+                  "cin": "..,
+                  "gender": "...",
+                  "status": "...",
+                  "contract": "...",
+                  "creationDate": "...",
+                }
+            - send POST Request to : : http://localhost:8081/customers/
+
+PUT:
+      * To update a data of a Customer using his id send PUT Request to : http://localhost:8081/customers/{id}
+       by sending data :
+       {
+             "firstName": "..",
+             "lastName": "..",
+             "email": "...",
+             "address": " ..",
+             "birthDay": "...",
+             "cin": "..,
+             "gender": "...",
+             "status": "...",
+             "contract": "...",
+             "creationDate": "...",
+         }
+       N.B : - None of those keys can be null !! Otherwise the response will be "status": 500, "error": "Internal Server Error",!! Because they have NotNull Constraint.
+             - Please verify the id before you send to update, because if somehow the in the link id doesn't exist, it will create a customer by increment the last id of the last customer in the DB.
+
+DELETE :
+        * Delete a Customer by its id send DELETE Request TO : http://localhost:8081/customers/{id}

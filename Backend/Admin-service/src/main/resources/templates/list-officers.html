@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="SideBar">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des agences</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/list_officers.css" th:href="@{/css/list_officers.css}" />
+    <script type="text/javascript" src="/js/deleteModal.js" th:src="@{/js/deleteModal.js}"></script>
+</head>
+<body>
+    <div layout:fragment="content">
+            <div class="main">
+                <div id="page-content-wrapper">
+                    <div class="container">
+                        <div>
+                            <div class="d-flex justify-content-start">
+                                <h3 class="head" style="margin-bottom: 20px;">Liste des Agents</h3>
+                                <span class="fill-space"></span>
+                                <form class="form-inline my-2 ">
+                                    <a class="mr-3 btn btn-secodary btn-sm" th:href="@{/ajouterAgent}">+Ajouter Agent</a>
+                                </form>
+                            </div>
+                            <div class="table100" style="height: 800px;">
+                                <table>
+                                    <thead class="table100-head">
+                                    <tr>
+                                        <th scope="col"> </th>
+                                        <th scope="col">   </th>
+                                        <th scope="col">Nom & Prénom </th>
+                                        <th scope="col">Poste </th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Tel</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="officer: ${officers}">
+                                        <td> </td>
+                                        <td>   </td>
+                                        <td th:text="${officer.getLastName()} +' '+ ${officer.getFirstName()}"></td>
+                                        <td th:text="${officer.getRole()}"> </td>
+                                        <td th:text="${officer.getEmail()}">  </td>
+                                        <td th:text="${officer.getPhoneNumber()}"></td>
+
+                                        <td>
+                                            <a class="btn btn-secodary btn-sm" th:href="@{/agents/{id}(id=${officer.getId()})}">Visualiser</a>
+                                            <a class="btn btn-secodary btn-sm" th:href="@{/modifierAgent/{id}(id=${officer.getId()})}">Modifier</a>
+                                            <a class="btn btn-secodary btn-sm " id="delBtn" th:href="@{/supprimerAgent/{id}(id=${officer.getId()})}">Supprimer</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+             </div>
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalTitle">Supprimer une Agence !</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="alert alert-danger"> Voulez-vous supprimer cet Agent ? </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <a href="" class="btn btn-danger" id="delRef">Confirmer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+</body>
+</html>
+

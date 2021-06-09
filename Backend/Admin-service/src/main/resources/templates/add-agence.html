@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualiser une Agence</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/vis-styles.css" th:href="@{/css/add-styles.css}" />
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/addModal.js" th:src="@{/js/addModal.js}"></script>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Ajouter une agence</h4>
+                    </div>
+
+                    <div class="card-body">
+                        <form th:action="@{/enregistrerAgence}" th:object="${agency}" method="post">
+                            <div class="form-group row">
+                                <label id= "name" class="col-md-4 col-form-label text-md-right"> Nom de l'agence: </label>
+
+                                <div class="col-md-6">
+                                    <input  type="text" class="form-control"  name="name" th:field="*{name}" required>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label id= "email" class="col-md-4 col-form-label text-md-right">Email</label>
+
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control"  name="email" th:field="*{email}"required>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label id= "tel" class="col-md-4 col-form-label text-md-right">N° du Téléphone</label>
+
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control"  name="NumT" th:field="*{phoneNumber}" required>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label  id= "fax"  class="col-md-4 col-form-label text-md-right">N° de Fax </label>
+
+                                <div class="col-md-6">
+                                    <input  type="number" class="form-control"  name="fax" th:field="*{fax}" required>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label id= "address"  class="col-md-4 col-form-label text-md-right">L'adresse</label>
+
+                                <div class="col-md-6">
+                                    <input  type="text"  name="rate" class="form-control"  th:field="*{address}" required >
+
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <a class="btn btn-secondary" th:href="@{/list_agences}">Retour</a>
+                                    <button type="submit"  id="#addBtn" class="btn btn-primary " style="margin-left: 100px;"> Créer l'agence </button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalTitle">Infos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="alert alert-success"> L'agence est ajouté avec succès. </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

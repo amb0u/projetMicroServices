@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/sideBar.css" th:href="@{/css/sideBar.css}" />
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="" id="sidebar-wrapper" style="position: fixed;">
+        <div class="sidebar-heading mr-4" style="text-align: center;">Ebank<b style="color: #36304a;"><i>Admin</i> </b> </div>
+        <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action agencies bg-light"  th:href="@{/list_agences}">Liste des agences</a>
+            <a href="#" class="list-group-item list-group-item-action officers bg-light"  th:href="@{/list_agents}">Liste des agents</a>
+            <a href="#" class="list-group-item list-group-item-action customers bg-light" th:href="@{/list_clients}">Liste des clients</a>
+            <a href="#" class="list-group-item list-group-item-action paramsG bg-light"   th:href="@{/list_Parameters}">Parametres Globaux</a>
+        </div>
+        <div class="list-group list-group-flush logout">
+                <a href="/logout" class="list-group-item list-group-item-action font-weight-bold bg-light">Logout</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <!--
+        -->
+    <div id="main" class="wrapper">
+        <div class="header">
+            <div class="row no-gutters">
+                <div class="col first-item">
+                    <div class="ship">
+                        <h6 class="top-left">
+                            Total des agences
+                        </h6>
+                        <div class="mid" th:text="${#response.getHeader('agencies')}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col item">
+                    <div class="ship">
+                        <h6 class="top-left">
+                            Total des Agents
+                        </h6>
+                        <div class="mid" th:text="${#response.getHeader('officers')}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col item">
+                    <div class="ship">
+                        <h6 class="top-left">
+                            Total des clients
+                        </h6>
+                        <div class="mid" th:text="${#response.getHeader('customers')}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 last-item">
+                    <div class="ship">
+                        <h6 class="top-left">
+                            Clients actifs
+                        </h6>
+                        <div class="mid" th:text="${#response.getHeader('customers')}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout:fragment="content">
+
+        </div>
+
+
+        <!-- /#page-content-wrapper -->
+
+    </div>
+
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualiser une Agence</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css.css" th:href="@{/css/normalize.css}" />
+    <link rel="stylesheet" type="text/css" href="/css/vis-styles.css" th:href="@{/css/vis-styles.css}" />
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+    <body>
+
+        <div class="main container d-flex justify-content-center">
+                    <div class="contenant" style="width: 400px; height: 600px;">
+                        <h3 style="margin-top: 60px;">Détail d'une Agence</h3>
+                        <br>
+                        <div class="row">
+                            <label class="col-6 fldlabel"><span>Nom de l'agence :</span></label>
+                            <div class="col-6" th:text="${agency.getName()}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>Directeur</span></label>
+                            <div class="col-6" th:text="${director} != null ? ${director.getLastName()} +' '+${director.getFirstName()}  : 'Non-disponible'"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>Email</span></label>
+                            <div class="col-6" th:text="${agency.getEmail()}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>N° Téléphone</span></label>
+                            <div class="col-6" th:text="${agency.getPhoneNumber()}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>N° de Fax</span></label>
+                            <div class="col-6" th:text="${agency.getFax()}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>L'Adresse</span></label>
+                            <div class="col-6" th:text="${agency.getAddress()}"></div>
+                        </div>
+                        <div class=" row">
+                            <label class="col-6  fldlabel"><span>La date de création</span></label>
+                            <div class="col-6" th:text="${agency.getCreationDate().toInstant().toString().substring(0,10)}"></div>
+                        </div>
+
+                        <br>
+                        <a class="btn btn-secondary" th:href="@{/list_agences}">Retour</a>
+                    </div>
+        </div>
+    </body>
+</html>

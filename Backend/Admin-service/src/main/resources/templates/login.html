@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="webjars/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/login.css" th:href="@{css/login.css}" />
+    <script src="webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="js/login.js" th:src="@{js/login.js}"></script>
+
+</head>
+    <body>
+
+        <div class="container">
+            <h1 class="h3 mb-3 font-weight-normal text-center">Authentifiez-vous</h1>
+            <h1 class=" font-weight-normal text-center errorInfo" th:text="${error}"></h1>
+            <form id="myform" class="form-signin" th:action="@{/loginUser}" method="post" enctype="multipart/form-data" th:object="${userLgin}">
+
+                <label for="inputEmail" class="sr-only">Identifiant</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Votre Email" required autofocus th:field="*{userName}">
+
+                <br>
+
+                <label for="inputPassword" class="sr-only">Mot de passe</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Votre Password"  autocomplete="on" required th:field="*{password}">
+
+                <br>
+
+                <button class="btn btn-lg btn-primary btn-block"  id="validate" type="submit">Se connecter</button>
+            </form>
+        </div>
+
+    </body>
+</html>
