@@ -1,0 +1,69 @@
+.setper{
+  border-radius: 20px ;
+  background-color: white;
+   margin : 20px;
+  box-shadow: 0 4px 5px 0 rgba(89, 89, 124, 0.19), 0 6px 10px 0 rgba(89, 89, 124, 0.19);
+  padding: 20px;
+  margin-top: 10px;
+
+ /*padding: 30%; */
+  box-sizing: border-box;
+
+
+  }
+
+
+  .xx{
+   /* width: 75%; */
+    padding: 0;
+  }
+  .form-group{
+    padding: 0px 5px;
+  }
+
+  .maticon {
+    color: rgb(48, 47, 47);
+    position: relative;
+    top : 8px ;
+
+  }
+
+  label {
+    font-weight: bold;
+
+  }
+
+  h1 {
+    margin-bottom:  20px;
+     font-weight: bold;
+     font-family: Arial, Helvetica, sans-serif;
+
+  }
+
+  button {
+    background-color: #2c4495;
+    color:white;
+  }
+
+
+  .form-control {
+    /*background-color: rgba(190, 184, 230, 0.1);
+    border: none;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 40, 0.1); */
+  }
+
+  .form-control.ng-invalid.ng-touched  {
+    border : 2px solid #FF0266 ;
+
+  }
+  .help-block {
+    color: #FF0266 ;
+  }
+
+
+  @media only screen and (max-width: 1000px) {
+    .xx{
+      width: 100%;
+    }
+  }

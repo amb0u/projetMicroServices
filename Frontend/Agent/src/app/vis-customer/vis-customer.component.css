@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto:300,400');
+
+.vis-client-wrapper {
+    text-align: center;
+    max-width: 500px;
+    padding: 1em;
+    font-family: "Open Sans", serif;
+}
+
+.breaking-line {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.attr {
+    margin-bottom: 0.5em;
+}
+
+.attr_name {
+    font-weight: 700;
+}
+div.row.actions {
+    margin: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* Accounts */
+
+.title {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+
+.accounts {
+    display: flex;
+    justify-content: space-between;
+}
+
+.account {
+    width: 48%;
+    float: left;
+    padding: 15px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    border: 2px solid #e1e1e1;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+
+.accout:hover {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -moz-transform:    scale(0.5);
+    -ms-transform:     scale(0.5);
+    -o-transform:      scale(0.5);
+	border-color: #8393ca;
+}
+
+.account-number {
+	color: #666666;
+}
+
+.account-saving {
+	margin-bottom: 5px;
+}

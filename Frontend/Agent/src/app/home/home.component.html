@@ -1,0 +1,61 @@
+<div id="main" class="wrapper">
+  <div class="header">
+    <div class="row no-gutters">
+      <div class="col first-item">
+          <div class="ship">
+            <h6 class="top-left">
+            Total des clients
+            </h6>
+            <div class="mid">
+              {{nbrClient}}
+            </div>
+          </div>
+      </div>
+      <div class="col item">
+        <div class="ship">
+          <h6 class="top-left">
+          Membres
+          </h6>
+          <div class="mid">
+            69
+          </div>
+        </div>
+      </div>
+      <div class="col item">
+        <div class="ship">
+          <h6 class="top-left">
+          Nouveaux clients
+          </h6>
+          <div class="mid">
+            7
+          </div>
+        </div>
+      </div>
+      <div class="col-5 last-item">
+        <div class="ship">
+          <h6 class="top-left">
+          Clients actifs
+          </h6>
+          <div class="mid">
+            8
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div>
+      <div class="d-flex justify-content-start"><h4 class="head">Liste des Clients</h4>
+        <form class="form-inline my-2 my-lg-0">
+          <input (keyup)="applyFilter($event)" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <span class="fill-space"></span>
+        <form class="form-inline my-2 ">
+          <button  routerLink="/ajouter"
+          type="button" class="mr-3 btn btn-secondary btn-sm">+ Ajouter client</button>
+        </form>
+      </div>
+      <app-table [dataSource]="dataSource" ></app-table>
+    </div>
+  </div>
+</div>

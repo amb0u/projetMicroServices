@@ -1,0 +1,143 @@
+<div class="container" >
+  <div *ngIf="!ishidden" class="alert alert-dismissible alert-danger">
+    <strong>Erreur!</strong> Veuillez reessayer
+  </div>
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-12 mt-3 ">
+
+
+
+      <div class="card">
+
+        <div class="card-header">
+             <mat-icon routerLink="/" style="position: relative; top: 5px; cursor: pointer;"> keyboard_backspace</mat-icon>
+             Ajouter un client
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-2">    </div>
+            <div class="col-7">
+              <form  #addClient="ngForm"  (ngSubmit)="onSubmit()"  class="marg">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label >  <mat-icon class="maticon"></mat-icon>Nom</label>
+                      <input type="text" class="form-control"  ngModel name="name" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label > <mat-icon class="maticon"></mat-icon> Prenom</label>
+                      <input type="text" class="form-control"   ngModel name="prenom" required>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <label > <mat-icon class="maticon">  location_on </mat-icon> Adress</label>
+                      <input type="text" class="form-control"  ngModel name="adress" required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                  <div class="form-group col-md-4">
+                    <label >  <mat-icon class="maticon"></mat-icon> Cin</label>
+                    <input type="text" class="form-control"  ngModel name="cin"  required>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label >  <mat-icon class="maticon">phone</mat-icon> N° de telephone </label>
+                    <input type="number"
+                     class="form-control"
+                      ngModel
+                       name="phone" required
+                      #phone="ngModel"
+                      >
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label >  <mat-icon class="maticon"></mat-icon> Status</label>
+
+                    <select  class="form-control"  ngModel name="status" required>
+                      <option selected></option>
+                      <option>Entreprise</option>
+                      <option>Personne</option>
+                    </select>
+                  </div>
+
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label >  <mat-icon class="maticon"> email</mat-icon>  Email Adress</label>
+                  <input type="email" class="form-control"
+                  ngModel
+                  name="email"
+                  email required
+                  #email="ngModel"
+                  >
+                  <span class="help-block" *ngIf="email.invalid && email.touched">  {{email.value}} is invalide </span>
+                </div>
+                <div class="form-group col-md-6">
+                  <label > <mat-icon class="maticon"></mat-icon>Operator</label>
+                  <select class="form-control"  ngModel name="operator" required>
+                    <option selected></option>
+                    <option>ORANGE</option>
+                    <option>IAM</option>
+                    <option>INWI</option>
+                  </select>
+                </div>
+
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label >Contrat</label>
+                  <input type="text" class="form-control" ngModel name="contrat" required >
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label >
+                       <mat-icon class="maticon"> date_range </mat-icon> Annee de naissance
+                    </label>
+                    <input type="date" class="form-control"  ngModel name="birth" required >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label > <mat-icon class="maticon"></mat-icon> Sexe</label>
+                    <select class="form-control"  ngModel name="sexe" required>
+                      <option selected></option>
+                      <option>Homme</option>
+                      <option>Femme</option>
+                      <option>Autre</option>
+                    </select>
+                  </div>
+
+              </div>
+
+                <div class="row">
+                  <div class="col-9"></div>
+                  <div class="col-2">
+                      <button type="submit" [disabled]="addClient.invalid"   mat-raised-button >  Ajouter Client </button>
+                  </div>
+              </div>
+
+              </form>
+            </div>
+
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+    </div>
+
+
+
+
+

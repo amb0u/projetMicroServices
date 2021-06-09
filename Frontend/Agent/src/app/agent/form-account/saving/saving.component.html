@@ -1,0 +1,80 @@
+<div class="container mt-5">
+
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div *ngIf="!ishidden" class="alert alert-dismissible alert-danger">
+          <strong>Erreur!</strong> Veuillez reessayer
+        </div>
+          <div class="card">
+              <div class="card-header">
+                <mat-icon routerLink="/modifier/1" style="position: relative; top: 5px; cursor: pointer;"> keyboard_backspace</mat-icon>
+                Saving Account
+              </div>
+
+              <div class="card-body">
+                  <form #saving="ngForm"  (ngSubmit)="onSubmit()" >
+
+
+                      <div class="form-group row">
+                          <label for="name" class="col-md-4 col-form-label text-md-right">  Solde </label>
+
+                          <div class="col-md-6">
+                              <input  type="number" class="form-control"  ngModel name="solde" required>
+
+                          </div>
+                      </div>
+
+                      <div class="form-group row">
+                          <label for="email" class="col-md-4 col-form-label text-md-right">Rate</label>
+
+                          <div class="col-md-6">
+                              <input  type="number" ngModel name="rate" class="form-control"   required >
+
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="username" class="col-md-4 col-form-label text-md-right"> Numero du compte</label>
+
+                          <div class="col-md-6">
+                              <input type="number" class="form-control"  ngModel name="Numc" required>
+
+                          </div>
+                      </div>
+
+                      <div class="form-group row">
+                          <label for="password" class="col-md-4 col-form-label text-md-right"> Limite du compte </label>
+
+                          <div class="col-md-6">
+                              <input  type="number" class="form-control"  ngModel name="Limitc"  required>
+
+                          </div>
+                      </div>
+
+
+
+                      <div class="form-group row mb-0">
+                          <div class="col-md-6 offset-md-4">
+                              <button type="submit"   class="btn cc">
+                                  Creer un compte
+                              </button>
+                          </div>
+                      </div>
+
+                      <div class="form-group row mb-0 mt-3">
+                        <div class="col-md-6 offset-md-4">
+                            <button  (click)="onSwitch()"   class="btn dd">
+                              Switch To Current Account
+                            </button>
+                        </div>
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="mt-3 spin" *ngIf="isSend">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+
+

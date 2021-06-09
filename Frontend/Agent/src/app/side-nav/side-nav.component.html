@@ -1,0 +1,53 @@
+<ng-container id="name">
+  <mat-sidenav-container class="sidenav-container" >
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false"
+        style="border : none !important;"
+        >
+      <mat-toolbar class="text-center logo ml" style="color: #22213f;">Ebank <span style="color: rgb(255, 123, 0);"><i>Agent</i></span> </mat-toolbar>
+      <mat-nav-list >
+        <mat-list-item class="container houver " style="width: 200px; border-radius: 4px;" >
+          <mat-icon style="color: #ff5a36;" matListIcon>home</mat-icon>
+          <a matLine routerLink="" style="color: #ff5a36 !important;">Accueil</a>
+        </mat-list-item>
+        <mat-list-item class="container houver" style="width: 200px; border-radius: 4px;">
+          <mat-icon matListIcon>email</mat-icon>
+          <a matLine routerLink="demandes" >Demandes</a>
+        </mat-list-item>
+      </mat-nav-list>
+      <mat-nav-list class="footer">
+        <mat-list-item class="container houver" style="width: 200px; border-radius: 4px;">
+          <mat-icon matListIcon>login</mat-icon>
+          <a matLine (click)="logout()" >Logout</a>
+        </mat-list-item>
+        <mat-list-item class="container houver" style="width: 200px; border-radius: 4px;">
+          <mat-icon matListIcon>account_circle</mat-icon>
+          <a matLine href="#" >Compte</a>
+        </mat-list-item>
+        <mat-list-item class="container houver" style="width: 200px; border-radius: 4px;">
+          <mat-icon matListIcon >settings</mat-icon>
+          <a matLine  [routerLink]="['/setting']" routerLinkActive="router-link-active" >Options</a>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- <mat-toolbar id="tool_bar" color="secondary">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon" style="color: #22213f;">menu</mat-icon>
+        </button>
+        <span style="color: #22213f;" >Title</span>
+        <span class="fill-space"></span>
+        <mat-icon matListIcon style="cursor: pointer;">account_circle</mat-icon>
+        <mat-icon class="m-3" style="cursor: pointer;" matListIcon>notifications_none</mat-icon>
+      </mat-toolbar> -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  </ng-container>

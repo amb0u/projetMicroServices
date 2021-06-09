@@ -1,0 +1,8 @@
+.houver:hover{
+  background-color: rgba(119, 133, 255, 0.103);
+}
+.hidden{
+  border-radius: 6px;
+  margin: 6px;
+  background-color: rgba(33, 37, 70, 0.13);
+}

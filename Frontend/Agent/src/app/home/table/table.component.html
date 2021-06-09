@@ -1,0 +1,46 @@
+<table mat-table
+       [dataSource]="dataSource"
+       cdkDropList
+       cdkDropListOrientation="horizontal"
+       (cdkDropListDropped)="drop($event)"
+       matSort >
+
+  <ng-container matColumnDef="select">
+    <th  mat-header-cell cdkDrag *matHeaderCellDef > <mat-checkbox></mat-checkbox></th>
+    <td mat-cell *matCellDef="let element"> <mat-checkbox></mat-checkbox> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="prenom">
+    <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Prenom </th>
+    <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Nom </th>
+    <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="CIN">
+    <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> CIN </th>
+    <td mat-cell *matCellDef="let element"> {{element.CIN}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th class="wi" mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th class="wi" mat-header-cell cdkDrag *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="d-flex justify-content-start ">
+        <button (click)="goVisualiser(element.id)" type="button" class="mr-2 btn btn-secondary btn-sm">Visualiser</button>
+        <button  (click)="goModifier(element.id)" type="button" class="mr-2 btn btn-secondary btn-sm">Modifier</button>
+        <button type="button" class="mr-2 btn btn-secondary warn btn-sm">Supprimer</button>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+</table>

@@ -1,0 +1,32 @@
+span{
+  /*margin-left: 10px;*/
+  font-size: 13pt;
+  color: rgb(122, 116, 116);
+}
+
+.list{
+  /*margin-right: 30px;*/
+  font-size: 9pt;
+}
+
+.description{
+  font-weight: bold;
+
+}
+
+.cont{
+  display: flex;
+  width: 100%;
+}
+.ch1{
+  flex: 3;
+
+}
+.ch2 {
+  flex: 2 ;
+
+}
+.ch3 {
+  flex : 1 ;
+
+}

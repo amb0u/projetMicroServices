@@ -1,0 +1,91 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+
+      <mat-card class="setper" >
+        <mat-nav-list >
+          <div class="links">
+            <a mat-list-item  class="houver" (click)="onshowIcon(1)" routerLink="informationsPersonelle">
+
+              <div class="item">
+                <div class="ch1">
+                  <mat-icon [ngClass]="{'icon-color': index===1}">accessibility</mat-icon>
+                </div>
+                <div class="ch2" [ngClass]="{'icon-color': index===1}">
+                  Informations personnelles
+                </div>
+                <div class="ch3">
+                  <mat-icon [ngClass]="{'icon-color': index===1}"> {{ iconToShow[0] }} </mat-icon>
+
+                </div>
+
+              </div>
+              </a>
+              <a mat-list-item class="houver" (click)="onshowIcon(2)">
+
+              <div class="item">
+                <div class="ch1">
+                  <mat-icon [ngClass]="{'icon-color': index===2}">account_balance_wallet</mat-icon>
+                </div>
+                <div class="ch2" [ngClass]="{'icon-color': index===2}">
+                   Gestion des comptes
+                </div>
+                <div class="ch3">
+                  <mat-icon  [ngClass]="{'icon-color': index===2}"> {{ iconToShow[1] }} </mat-icon>
+
+                </div>
+
+              </div>
+              </a>
+              <a class="houver" [routerLink]="['/regen']" routerLinkActive="router-link-active"  mat-list-item (click)="onshowIcon(3)">
+
+              <div class="item">
+                <div class="ch1">
+                  <mat-icon [ngClass]="{'icon-color': index===3}">security</mat-icon>
+                </div>
+                <div class="ch2" [ngClass]="{'icon-color': index===3}">
+                  Sécurité
+                </div>
+                <div class="ch3">
+                  <mat-icon  [ngClass]="{'icon-color': index===3}"> {{ iconToShow[2] }} </mat-icon>
+
+                </div>
+
+              </div>
+              </a>
+              <a class="houver" mat-list-item (click)="onshowIcon(4)" routerLink="oppositionCarte">
+              <div class="item">
+                <div class="ch1">
+                  <mat-icon [ngClass]="{'icon-color': index===4}">lock</mat-icon>
+                </div>
+                <div class="ch2" [ngClass]="{'icon-color': index===4}">
+                  Opposition sur carte
+                </div>
+                <div class="ch3">
+                  <mat-icon [ngClass]="{'icon-color': index===4}"> {{ iconToShow[3] }} </mat-icon>
+
+                </div>
+
+              </div>
+
+
+            </a>
+          </div>
+        </mat-nav-list>
+
+      </mat-card>
+
+
+
+    </div>
+
+    <div class="col-md-7">
+     <!-- <app-info-personelle></app-info-personelle> -->
+     <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,24 @@
+<mat-list-item  class="container houver" style="width: 200px; border-radius: 4px;" >
+    <mat-icon matListIcon >account_circle</mat-icon>
+    <a matLine [routerLink]="['/accounts']" routerLinkActive="router-link-active">Comptes</a>
+</mat-list-item>
+<mat-list-item (click)="toggle[2] = !toggle[2]" class="container houver" style="width: 200px; border-radius: 4px;" >
+    <mat-icon matListIcon >money</mat-icon>
+    <a matLine>Opérations</a>
+    <span>
+    <mat-icon *ngIf="!toggle[2]">expand_more</mat-icon>
+    <mat-icon *ngIf="toggle[2]">expand_less</mat-icon>
+    </span>
+</mat-list-item>
+<div [hidden]="!toggle[2]" class="hidden">
+        <mat-list >
+            <mat-list-item >
+                <a matLine [routerLink]="['/virement']" routerLinkActive="router-link-active"  style="color: #22213f; text-align:center; " >Effectuer un virement</a>
+                </mat-list-item>
+        </mat-list>
+        <mat-list >
+            <mat-list-item >
+                <a matLine [routerLink]="['/recharge']" routerLinkActive="router-link-active"  style="color: #22213f; text-align:center;" >Effectuer une recharge</a>
+                </mat-list-item>
+        </mat-list>
+</div>

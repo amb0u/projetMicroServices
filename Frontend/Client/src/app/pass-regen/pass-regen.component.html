@@ -1,0 +1,89 @@
+
+  <mat-horizontal-stepper [linear]="isLinear" #stepper class="setper">
+    <mat-step [stepControl]="oldPass">
+      <form [formGroup]="oldPass">
+        <ng-template matStepLabel>Votre ancien mot de passe</ng-template>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                  <mat-form-field appearance="outline" id="ids">
+                        <mat-label>Ancien mot de passe</mat-label>
+                        <input [type]="hide ? 'password' : 'text'" matInput placeholder="Ancien mot de passe" [errorStateMatcher]="matcher"  formControlName="firstCtrl" appearance="outline" required>
+                        <mat-icon style="cursor: pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-hint>Saisissez votre mot de pass actuel</mat-hint>
+                        <mat-error *ngIf="oldPass.get('firstCtrl').hasError('notSame')">
+                          Les mots de passe ne correspondent pas. Veuillez réessayer
+                  </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <p>
+                        Suivez ces etapes pour changez votre mot de passe, vous receverez un message sur votre numéro : 0643242353
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button (click)="checkoldpass(stepper,oldPass)" mat-raised-button color="primary" >Next</button>
+                </div>
+            </div>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="newPass">
+      <form [formGroup]="newPass">
+        <div class="container">
+            <ng-template matStepLabel >Votre nouveau mot de passe</ng-template>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Votre nouveau mot de passe</mat-label>
+                        <input [type]="hide ? 'password' : 'text'"  matInput formControlName="secondCtrl1" name="password"  placeholder="Votre nouveau mot de passe"
+                               required>
+                        <mat-icon style="cursor: pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="newPass.invalid || newPass.get('secondCtrl1').hasError('pattern')">
+                            Entrer un mot de passe valide (8 chiffres)
+                        </mat-error>
+
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Confirmer le mot de passe</mat-label>
+                        <input [type]="hide ? 'password' : 'text'" matInput formControlName="secondCtrl2" [errorStateMatcher]="matcher" name="confirmPass" placeholder="Confirmer le mot de passe"
+                               required>
+                        <mat-icon style="cursor: pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="newPass.hasError('notSame')">
+                                Les mots de passe ne correspondent pas. Veuillez réessayer
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline" id="numr">
+                        <mat-label>Code de sécurité</mat-label>
+                        <input matInput placeholder="Code de sécurité"
+                               required>
+                        <mat-hint>Saisissez le code de sécurité que vous avez recu sur 0643242353 </mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <button mat-raised-button color="primary" matStepperPrevious>Précedent</button>
+                        <button (click)="changepass()" mat-raised-button color="primary" [disabled]="!newPass.valid" matStepperNext>Suivant</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Succes</ng-template>
+      <p>L'oppération a bien aboutit.</p>
+    </mat-step>
+  </mat-horizontal-stepper>

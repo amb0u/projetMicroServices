@@ -1,0 +1,13 @@
+#test{
+  width: 70%;
+}
+mat-form-field {
+  width: 100%;
+}
+.example-full-width {
+width: 100%;
+}
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

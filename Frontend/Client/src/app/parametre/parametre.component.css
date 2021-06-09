@@ -1,0 +1,53 @@
+
+
+
+@media only screen and (max-width: 1000px) {
+  .yy{
+    margin-bottom: 3%;
+  }
+
+  }
+
+  .item{
+    display: flex;
+    width: 100%;
+
+  }
+
+  .ch1{
+    flex: 3;
+
+  }
+  .ch2 {
+    flex: 20;
+    text-align: left;
+
+  }
+  .ch3{
+    flex: 1;
+
+  }
+
+  .icon-color {
+    color: #0275d8;
+  }
+
+.setper{
+  border-radius: 15px;
+  background: rgb(255, 255, 255);
+  margin : 20px;
+  box-shadow: 0 4px 5px 0 rgba(89, 89, 124, 0.19), 0 6px 10px 0 rgba(89, 89, 124, 0.19);
+  padding: 20px;
+  }
+.houver:hover{
+  background-color: rgba(119, 133, 255, 0.103);
+  border-radius: 4px;
+}
+
+
+  .container{
+    width: 100%;
+    margin: 0;
+    padding: 3%;
+    box-sizing: border-box;
+  }

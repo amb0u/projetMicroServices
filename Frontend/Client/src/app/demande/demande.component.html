@@ -1,0 +1,31 @@
+<div [formGroup]="demandeForm" class="container mt-5" id="test">
+  <div class="row align-items-center">
+    <div class="col">
+        <mat-form-field  appearance="outline" >
+          <mat-label>type de demande</mat-label>
+          <input matInput formControlName="typeDemande"  placeholder="type de demande" required>
+        </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field  appearance="outline"
+          >
+          <textarea class="textarea" formControlName="demandeText" matInput placeholder="Votre message.."></textarea>
+          <mat-label> Votre message</mat-label>
+      </mat-form-field>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button (click)="OnSubmit()"  mat-raised-button color="primary" [disabled]="!demandeForm.valid">Valider</button>
+  </div>
+  </div>
+  <div class="row" *ngIf="!this.hidden_valide">
+    <div class="col">
+      <div class="mt-3 alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Succes!</strong> Votre demande a bien été envoyer <a href="/visdemande" class="alert-link">Cliquer ici pour voir l'avancement de vos demandes</a>.
+      </div>
+  </div>
+</div>

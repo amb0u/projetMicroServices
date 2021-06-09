@@ -1,0 +1,42 @@
+<form #oc="ngForm" class="paramWrapper">
+  <mat-horizontal-stepper linear>
+    <mat-step>
+      <p>Choisire une carte à oppositionner.</p>
+      <div>
+        <select class="form-control" id="card" required [(ngModel)]="model" name="card">
+          <option *ngFor="let c of cards" [ngValue]="c">{{c.name}} - {{c.number}}</option>
+        </select>
+        <button mat-raised-button color="primary" matStepperNext type="button">Suivant</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div>
+        <mat-form-field id="motif-autre" appearance="outline">
+          <mat-label>Motif du virement</mat-label>
+          <textarea matInput id="motif" required [(ngModel)]="motif" name="motif"></textarea>
+        </mat-form-field>
+        <br />
+        <button mat-raised-button color="primary" matStepperNext type="button">Suivant</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div>
+        <p style="margin-bottom: 0;">Vous receverez un message sur votre numéro : 0643242353</p>
+        <mat-form-field id="motif-autre" appearance="outline">
+          <mat-label>Code de sécurité</mat-label>
+          <input matInput placeholder="Code de sécurité" required>
+          <mat-hint>Saisissez le code de sécurité que vous avez recu sur 0643242353 </mat-hint>
+        </mat-form-field>
+        <br />
+        <button mat-raised-button color="primary" matStepperNext type="button">Suivant</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div>
+        <h4>Êtes-vous sûr de vouloir oppositionner la carte {{model.name}} dont le numero est
+          {{model.number}} ?</h4>
+        <button mat-raised-button color="primary" matStepperNext (click)="submit()" type="submit">Confirmer</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>

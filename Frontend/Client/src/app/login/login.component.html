@@ -1,0 +1,45 @@
+<div class="row no-gutters" >
+<div class="col-md-6 no-gutters">
+  <div class="right">
+    <form class="form-signin " [formGroup]="loginForm">
+      <h1 class="h3 mb-3 font-weight-normal">Authentifiez-vous :</h1>
+      <label for="inputEmail" class="sr-only">Identifiant</label>
+      <input formControlName="login" type="email" id="inputEmail" class="form-control" placeholder="Login" required autofocus>
+      <label for="inputPassword" class="sr-only">Mot de passe</label>
+      <input formControlName="password" type="password" value="{{Pass}}" id="inputPassword" class="form-control" placeholder="Password" disabled  required>
+      <div>
+        <ul id="keyboard" class="ml-5 pl-2 pt-2 pb-2">
+            <li (click)="type('1')" class="letter">1</li>
+            <li (click)="type('2')" class="letter">2</li>
+            <li (click)="type('3')" class="letter">3</li>
+            <li (click)="type('4')" class="letter clearl">4</li>
+            <li (click)="type('5')" class="letter">5</li>
+            <li (click)="type('6')" class="letter">6</li>
+            <li (click)="type('7')" class="letter clearl">7</li>
+            <li (click)="type('8')" class="letter ">8</li>
+            <li (click)="type('9')" class="letter">9</li>
+            <li (click)="backspace()" class="letter clearl">
+              <svg xmlns="http://www.w3.org/2000/svg" height="60px" width="30" viewBox="0 0 320.941 320.941">
+                <path d="m290.853 40.118h-181.049c-9.06 0-17.551 4.016-23.301 11.038l-84.241 102.968c-3.017 3.692-3.017 9.001 0 12.693l84.251 102.978c5.739 7.013 14.231 11.028 23.291 11.028h181.048c16.592 0 30.088-13.497 30.088-30.088v-180.529c.001-16.592-13.496-30.088-30.087-30.088zm10.029 210.617c0 5.534-4.496 10.029-10.029 10.029h-181.049c-3.026 0-5.857-1.342-7.767-3.673l-79.05-96.621 79.04-96.611c1.92-2.341 4.75-3.683 7.777-3.683h181.048c5.534 0 10.029 4.496 10.029 10.029.001.001.001 180.53.001 180.53z"/><path d="m223.585 103.232-43.056 43.056-43.056-43.056-14.182 14.182 43.056 43.056-43.056 43.056 14.182 14.182 43.056-43.056 43.056 43.056 14.182-14.182-43.056-43.056 43.056-43.056z"/></svg>
+            </li>
+            <li (click)="type('0')" class="letter">0</li>
+            <li (click)="reset()" class="letter">
+              <mat-icon style="color: black;">refresh</mat-icon>
+            </li>
+        </ul>
+      </div>
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.'4'.2/jquery.min.js"></script>
+            <button (click)="Login()" class="connect btn btn-lg btn-primary btn-block">Se Connecter</button>
+            <div *ngIf="!ishidden" class="mt-3 alert alert-dismissible alert-danger">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Erreur !</strong> <a href="#" class="alert-link"> Email ou mot de passe incorrect</a> Veuillez réessayer
+            </div>
+  </form>
+  </div>
+</div>
+<div class="col-md-6 no-gutters">
+    <div class="left" style="line-height: 100vh;">
+      <p class="form-signin title" >Ebank</p>
+    </div>
+  </div>
+</div>

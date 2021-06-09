@@ -1,0 +1,16 @@
+<div>
+<form class="form-signin" [formGroup]="loginForm">
+    <h1 class="h3 mb-3 font-weight-normal">Authentifiez-vous :</h1>
+    <label for="inputEmail" class="sr-only">Identifiant</label>
+    <input formControlName="login" type="email" id="inputEmail" class="form-control" placeholder="Login" required autofocus>
+    <label for="inputPassword" class="sr-only">Mot de passe</label>
+    <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password"  required>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Se souvenir de moi
+      </label>
+    </div>
+    <button (click)="Login()" class="btn btn-lg btn-primary btn-block" type="submit">Se Connecter</button>
+</form>
+</div>

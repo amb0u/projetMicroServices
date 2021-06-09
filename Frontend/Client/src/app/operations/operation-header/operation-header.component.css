@@ -1,0 +1,44 @@
+.ctn{
+  display: flex;
+  align-items: center;
+}
+
+.ctn-child{
+  flex:6;
+
+}
+.ctn-child-2{
+  flex: 2;
+
+}
+
+.xx{
+  margin: 2% 10%;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+  .ctn-child{
+    flex:4;
+
+  }
+  .ctn-child-2{
+    flex: 2;
+
+  }
+
+}
+
+@media only screen and (max-width: 400px) {
+  .ctn-child{
+    flex:1;
+  }
+  .ctn-child-2{
+    flex: 1;
+  }
+  .xx{
+    margin: 1% 1%;
+  }
+
+}

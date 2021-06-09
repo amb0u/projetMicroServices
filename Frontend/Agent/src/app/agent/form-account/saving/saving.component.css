@@ -1,0 +1,36 @@
+
+  button {
+    width: 100%;
+  }
+
+  .form-control.ng-invalid.ng-touched  {
+    border : 2px solid #FF0266 ;
+
+  }
+  .help-block {
+    color: #FF0266 ;
+  }
+  .spin{
+    position: absolute;
+    left: 500px;
+    right: 500px;
+    z-index: 3;
+    text-align: center;
+
+  }
+
+  .cc{
+    background-color: #ff5a36;
+    border-color: #dd4f2f;
+    color: white;
+  }
+  .cc:hover{
+    background-color: #cc4e31;
+  }
+  .dd{
+    background-color: #6b6b6b;
+    color: white;
+  }
+  .dd:focus,.dd:hover{
+    background-color: #464646;
+  }

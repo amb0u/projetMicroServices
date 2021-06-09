@@ -1,0 +1,11 @@
+
+
+
+<div *ngIf="isswitched">
+  <app-current (issiwtched)="onSwitch($event)" ></app-current>
+</div>
+<div  *ngIf="!isswitched">
+  <app-saving (issiwtched)="onSwitch($event)"></app-saving>
+</div>
+
+

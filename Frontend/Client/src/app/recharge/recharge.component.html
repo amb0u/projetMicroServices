@@ -1,0 +1,60 @@
+
+<div id="test" class="container mt-5" [formGroup]="rechargeForm">
+    <div class="row align-items-center">
+        <div class="col">
+            <mat-form-field  appearance="outline">
+            <mat-select formControlName="compte" required>
+              <mat-option value="{{this.User_object.currentAccountNum}}">{{this.User_object.currentAccountNum}}</mat-option>
+              <mat-option value="{{this.User_object.savingsAccountNum}}">{{this.User_object.savingsAccountNum}}</mat-option>
+            </mat-select>
+            <mat-label> Compte à deverser</mat-label>
+            <mat-error *ngIf="rechargeForm.get('compte').hasError('required')">Champs requis </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field  appearance="outline"
+                >
+                <mat-select formControlName="operateur"  required>
+                    <mat-option value="ORANGE">ORANGE</mat-option>
+                    <mat-option value="IAM">IAM</mat-option>
+                    <mat-option value="INWI">INWI</mat-option>
+                </mat-select>
+                <mat-label> Votre opérateur</mat-label>
+                <mat-error *ngIf="rechargeForm.get('operateur').hasError('required')">Champs requis </mat-error>
+            </mat-form-field>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-form-field  appearance="outline" >
+            <mat-label>Numéro de téléphone</mat-label>
+            <input matInput formControlName="phone" type="phone" placeholder="Numéro de téléphone" required>
+            <mat-error *ngIf="rechargeForm.get('phone').hasError('minlength') ||
+             rechargeForm.get('phone').hasError('minlength')||
+            rechargeForm.get('phone').hasError('pattern')  ">Entrer un numéro de telephone valide </mat-error>
+            <mat-error *ngIf="rechargeForm.get('phone').hasError('required')">Champs requis </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field  appearance="outline"
+                >
+                <mat-select formControlName="amount"  required>
+                    <mat-option value="20">20</mat-option>
+                    <mat-option value="50">50</mat-option>
+                    <mat-option value="100">100</mat-option>
+                    <mat-option value="200">200</mat-option>
+                </mat-select>
+                <mat-label> Montant de la recharge</mat-label>
+                <mat-error *ngIf="rechargeForm.get('amount').hasError('required')">Champs requis </mat-error>
+            </mat-form-field>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button (click)="OnSubmit()"  mat-raised-button color="primary" [disabled]="!rechargeForm.valid">Valider</button>
+        </div>
+    </div>
+</div>

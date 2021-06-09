@@ -1,0 +1,60 @@
+<div id="test" class="container mt-5" [formGroup]="virementForm">
+  <div class="row align-items-center">
+      <div class="col">
+          <mat-form-field appearance="outline"
+              >
+          <mat-select formControlName="compte" required>
+              <mat-option value="{{this.User_object.currentAccountNum}}">{{this.User_object.currentAccountNum}}</mat-option>
+              <mat-option value="{{this.User_object.savingsAccountNum}}">{{this.User_object.savingsAccountNum}}</mat-option>
+          </mat-select>
+          <mat-label> Compte a deverser</mat-label>
+          <mat-error *ngIf="virementForm.get('compte').hasError('required')">Champs requis </mat-error>
+          </mat-form-field>
+      </div>
+      <div class="col">
+          <mat-form-field  appearance="outline" >
+            <mat-label>Numéro de compte du bénificiaire</mat-label>
+            <input  [matAutocomplete]="auto" formControlName="beneficiaire" matInput  type="phone" placeholder="Numéro de compte du bénificiaire" required>
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let account of Accounts" [value]="account">
+                <span>{{account}}</span>
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="virementForm.get('beneficiaire').hasError('minlength') ||
+            virementForm.get('beneficiaire').hasError('maxlength') ||
+            virementForm.get('beneficiaire').hasError('pattern')" >
+              Entrer un numéro de compte valide
+            </mat-error>
+            <mat-error *ngIf="virementForm.get('beneficiaire').hasError('required')">Champs requis </mat-error>
+
+          </mat-form-field>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col">
+          <mat-form-field appearance="outline">
+              <mat-label>Montant du virement</mat-label>
+              <input formControlName="amount" matInput type="number" class="example-right-align" required>
+              <span matPrefix style="color: #2c4495;">MAD&nbsp;</span>
+              <span matSuffix>.00</span>
+              <mat-error *ngIf="virementForm.get('amount').hasError('required')">Champs requis </mat-error>
+          </mat-form-field>
+      </div>
+      <div class="col">
+          <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Motif du virement</mat-label>
+              <textarea formControlName="motif" matInput placeholder="Motif du virement"></textarea>
+              <mat-hint >Necessaire en cas de virement supérieur a 2500 MAD</mat-hint>
+              <mat-error #error *ngIf="virementForm.get('motif').hasError('required')">Champs requis </mat-error>
+          </mat-form-field>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col">
+          <button (click)="OnSubmit()" type="submit" mat-raised-button color="primary" [disabled]="!virementForm.valid">Valider</button>
+      </div>
+  </div>
+  <div class="row mt-4 ml-2">
+  <p></p>
+</div>
+</div>

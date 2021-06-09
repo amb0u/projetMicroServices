@@ -1,0 +1,50 @@
+table {
+  width: 100%;
+
+}
+.cont{
+  padding: 2% 6%;
+}
+mat-form-field{
+  padding: 5px 10%;
+}
+
+mat-label{
+  font-size: 13pt;
+  color: white;
+}
+input{
+  color: white;
+}
+::placeholder{
+  color: #FF4081;
+}
+
+.title {
+  color: white;
+
+}
+.headR{
+  display: flex;
+  width: 100%;
+}
+
+.ch1 {
+  flex: 2;
+  margin: 20px 20px;
+}
+.ch2 {
+  flex : 1 ;
+}
+
+.mat-elevation-z8{
+  /*background-color: rgba(2, 117, 216,0.7);*/
+  background-color: #2c4495
+
+
+}
+@media only screen and (max-width: 800px) {
+  .ch1{
+    flex: 1;
+  }
+}

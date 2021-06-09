@@ -1,0 +1,60 @@
+<ng-container id="name">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"
+      style="border: none !important;">
+    <mat-toolbar class="text-center " style="
+    color: #22213f;
+    text-align:center;
+    ">Ebank</mat-toolbar>
+    <mat-nav-list >
+      <mat-list-item class="container houver " style="width: 200px; border-radius: 4px;" >
+        <mat-icon matListIcon>home</mat-icon>
+        <a matLine routerLink="" style="color: #22213f;">Accueil</a>
+      </mat-list-item>
+
+      <app-expansion-list style="color: #22213f;"></app-expansion-list>
+
+      <mat-list-item class="container houver" style="width: 200px; border-radius: 4px;">
+        <mat-icon matListIcon>table_chart</mat-icon>
+        <a matLine (click) = "goOperations()" style="color: #22213f;">Historiques</a>
+      </mat-list-item>
+    </mat-nav-list>
+
+    <mat-nav-list class="footer">
+      <mat-divider class="mb-3 "></mat-divider>
+      <mat-list-item class="mb-3 container houver" style="width: 200px; border-radius: 4px;">
+        <mat-icon matListIcon >settings</mat-icon>
+        <a matLine  [routerLink]="['/setting']" routerLinkActive="router-link-active"  style="color: #22213f;">Options</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="secondary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon" style="color: #22213f;">menu</mat-icon>
+      </button>
+      <mat-icon matListIcon class="mr-3">{{Icon}}</mat-icon>
+      <span style="color: #22213f;" >{{Title}}</span>
+      <span class="fill-space"></span>
+
+      <button type="button" class="btn btn-outline-secondary m-3">Balance : {{Balance}}.00 DH </button>
+      <mat-icon matListIcon style="cursor: pointer;" class="m-3">account_circle</mat-icon>
+      <mat-icon (click)="caller()" class="mr-3" style="cursor: pointer;" matListIcon>notifications_none</mat-icon>
+      <mat-icon (click)="disconnect()" matListIcon style="cursor: pointer;">login</mat-icon>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <mat-toolbar class="foot">
+      <small class="text-muted mr-2">Nous contacter : </small>
+      <mat-icon style="cursor: pointer;" (click)="goDemande()">email</mat-icon>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</ng-container>

@@ -1,0 +1,9 @@
+<h4>Du client : {{prenom}} {{nom}} </h4>
+<h5>Type de demande : {{type}} </h5>
+<p>{{message}}</p>
+<div class="d-flex justify-content-start">
+  <button mat-dialog-close (click)="traiter()" class="btn btn-primary">Traiter</button>
+  <span style="flex:1 1 auto;"></span>
+  <p>Date demande : {{date}}</p>
+</div>
+

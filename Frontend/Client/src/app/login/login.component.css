@@ -1,0 +1,189 @@
+svg {
+  vertical-align: baseline;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto 0 auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-signin input[type="password"]:disabled{
+  background-color: white;
+}
+.connect{
+  background-color: #2c4495;
+}
+
+* {
+  margin: 0;
+  overflow-y: hidden !important; /* Hide vertical scrollbar */
+  overflow-x: hidden !important; /* Hide horizontal scrollbar */
+  -ms-overflow-style: none !important;
+
+  }
+  body {
+  font: 71%/1.5 Verdana, Sans-Serif;
+  background: #eee;
+
+  }
+  #container {
+  margin: 100px auto;
+  width: 760px;
+  }
+  #keyboard {
+  margin-left: 18.5%;
+  padding: 0;
+  list-style: none;
+  }
+      #keyboard li {
+      float: left;
+      margin: 0 5px 5px 0;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      line-height: 60px;
+      text-align: center;
+      background: #fff;
+      border: 1px solid #c0afaf;
+      border-radius: 5px;
+      }
+          .capslock, .tab, .left-shift, .clearl, .switch {
+          clear: left;
+          }
+              #keyboard .tab, #keyboard .delete {
+              width: 70px;
+              }
+              #keyboard .capslock {
+              width: 80px;
+              }
+              #keyboard .return {
+              width: 90px;
+              }
+              #keyboard .left-shift{
+              width: 70px;
+              }
+
+              #keyboard .switch {
+              width: 90px;
+              }
+              #keyboard .rightright-shift {
+              width: 109px;
+              }
+          .lastitem {
+          margin-right: 0;
+          }
+          .uppercase {
+          text-transform: uppercase;
+          }
+          #keyboard .space {
+          float: left;
+          width: 556px;
+          }
+          #keyboard .switch, #keyboard .space, #keyboard .return{
+          font-size: 16px;
+          }
+          .on {
+          display: none;
+          }
+          #keyboard li:hover {
+          position: relative;
+          top: -2px;
+          left: -2px;
+          border: 1px solid #c0afaf;
+          border-radius: 5px;
+          cursor: pointer;
+          box-shadow: 1px 1px rgb(234, 129, 139),
+               2px 2px rgb(234, 129, 139),
+               3px 3px rgb(234, 129, 139)
+               ;
+          }
+          #keyboard li:active {
+          position: relative;
+          top: -2px;
+          left: -2px;
+          border: 1px solid #c0afaf;
+          border-radius: 5px;
+          cursor: pointer;
+          background-color: #c0c9fa81;
+          box-shadow: 1px 1px rgb(234, 129, 139),
+               2px 2px rgb(234, 129, 139),
+               3px 3px rgb(234, 129, 139)
+               ;
+          }
+.left,.right{
+  height: 100%;
+  width: 100%;
+
+}
+.right{
+  background: white;
+  padding-top: 5em;
+}
+.left{
+  background: #2c4495;
+
+
+}
+.title{
+  font-size:7em;
+      font-family: Helvetica;
+      font-weight:bolder;
+      color:white;
+      text-shadow: 1px 1px rgb(234, 129, 139),
+                    2px 2px rgb(234, 129, 139),
+                    3px 3px rgb(234, 129, 139);
+      -webkit-transition: all 0.12s ease-out;
+      -moz-transition:    all 0.12s ease-out;
+      -ms-transition:     all 0.12s ease-out;
+      -o-transition:      all 0.12s ease-out;
+}
+.title:hover{
+  cursor: pointer;
+  position: relative;
+
+  text-shadow: 1px 1px rgb(234, 129, 139),
+               2px 2px rgb(234, 129, 139),
+               3px 3px rgb(234, 129, 139),
+               4px 4px rgb(234, 129, 139),
+               5px 5px rgb(234, 129, 139),
+               6px 6px rgb(234, 129, 139);
+}

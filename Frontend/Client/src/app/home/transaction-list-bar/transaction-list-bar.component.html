@@ -1,0 +1,27 @@
+
+<div>
+  <h4>Liquidity</h4>
+<mat-slider  min="10" value="50" color="primary"></mat-slider> <span>Progress,Actual</span>
+
+<mat-list *ngFor="let trans of transaction ; let i=index" >
+  <mat-list-item >
+
+    <div class="cont">
+      <div class="ch1">
+        <span class="list"> {{ trans.num}}
+          <div class="description"> {{ trans.description}} </div>
+        </span>
+      </div>
+      <div class="ch2">
+        <span class="list"> {{ trans.date}} </span>
+      </div>
+      <div class="ch3">
+        <span class="list"> {{ trans.price }} </span>
+      </div>
+
+    </div>
+  </mat-list-item>
+  <mat-divider *ngIf="i<transaction.length-1"></mat-divider>
+
+</mat-list>
+</div>
